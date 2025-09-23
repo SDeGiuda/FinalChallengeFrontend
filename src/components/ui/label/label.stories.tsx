@@ -7,7 +7,7 @@ const meta: Meta<typeof Label> = {
   component: Label,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/Label",
+  title: "--components/UI/Label",
 } satisfies Meta<typeof Label>;
 
 export default meta;

@@ -4,7 +4,7 @@ import { DropdownMenu, Icons } from "@/components/ui";
 import { Breadcrumb } from "./breadcrumb";
 
 const meta: Meta<typeof Breadcrumb.Root> = {
-  title: "Components/UI/Breadcrumb",
+  title: "--components/UI/Breadcrumb",
   component: Breadcrumb.Root,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

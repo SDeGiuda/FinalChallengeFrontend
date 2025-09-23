@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Select } from "./select";
 
 const meta: Meta<typeof Select.Root> = {
-  title: "Components/UI/Select",
+  title: "--components/UI/Select",
   component: Select.Root,
   tags: ["autodocs"],
   parameters: {

@@ -1,9 +1,11 @@
 import { Suspense } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { createRootRoute, Outlet, redirect } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { z } from "zod";
 
 import { env } from "@/config/env";
+import { getIsLoggedIn } from "@/stores";
 
 const RootComponent = () => {
   return (
@@ -20,4 +22,19 @@ const RootComponent = () => {
   );
 };
 
-export const Route = createRootRoute({ component: RootComponent });
+export const Route = createRootRoute({
+  component: RootComponent,
+  validateSearch: z.object({
+    redirect: z.string().optional().catch(""),
+  }),
+  beforeLoad: ({ search }) => {
+    const isLoggedIn = getIsLoggedIn();
+
+    if (isLoggedIn && location.pathname !== "/e-commerce") {
+      throw redirect({ to: search.redirect || "/e-commerce" });
+    }
+    if (!isLoggedIn && location.pathname !== "/sign-up") {
+      throw redirect({ to: search.redirect || "/sign-up" });
+    }
+  },
+});

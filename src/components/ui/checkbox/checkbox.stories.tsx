@@ -12,7 +12,7 @@ const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/Checkbox",
+  title: "--components/UI/Checkbox",
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;

@@ -8,7 +8,7 @@ const meta: Meta<typeof NavigationMenu.Root> = {
   component: NavigationMenu.Root,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/NavigationMenu",
+  title: "--components/UI/NavigationMenu",
 } satisfies Meta<typeof NavigationMenu.Root>;
 
 export default meta;
@@ -18,8 +18,8 @@ export const Default: Story = {
   render: () => {
     const routes: { path: AvailableRoutesToPath; label: string }[] = [
       { path: "/", label: "Root" },
-      { path: "/dashboard", label: "Dashboard" },
-      { path: "/users", label: "Users" },
+      { path: "/sign-up", label: "Sign UP" },
+      { path: "/e-commerce", label: "e-commerce" },
     ];
 
     return (

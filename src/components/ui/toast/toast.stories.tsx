@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button } from "@/components/ui";
+import { Button } from "@/components/ui/button/button.tsx";
 import { toast, Toaster } from "./toast";
 
 const meta: Meta<typeof Toaster> = {
   component: Toaster,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/Toast",
+  title: "--components/UI/Toast",
 } satisfies Meta<typeof Toaster>;
 
 export default meta;

@@ -8,7 +8,7 @@ const meta: Meta<typeof DropdownMenu.Root> = {
   component: DropdownMenu.Root,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/DropdownMenu",
+  title: "--components/UI/DropdownMenu",
 } satisfies Meta<typeof DropdownMenu.Root>;
 
 export default meta;

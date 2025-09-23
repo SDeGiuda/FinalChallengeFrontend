@@ -8,7 +8,7 @@ const meta: Meta<typeof Dialog.Root> = {
   component: Dialog.Root,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/Dialog",
+  title: "--components/UI/Dialog",
 } satisfies Meta<typeof Dialog.Root>;
 
 export default meta;

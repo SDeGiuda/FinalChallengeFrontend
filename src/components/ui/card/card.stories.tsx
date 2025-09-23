@@ -7,7 +7,7 @@ const meta: Meta<typeof Card.Root> = {
   component: Card.Root,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/Card",
+  title: "--components/UI/Card",
 } satisfies Meta<typeof Card.Root>;
 
 export default meta;

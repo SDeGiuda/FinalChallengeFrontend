@@ -6,7 +6,7 @@ const meta: Meta<typeof Tooltip.Root> = {
   component: Tooltip.Root,
   parameters: { layout: "padded" },
   tags: ["autodocs"],
-  title: "Components/UI/Tooltip",
+  title: "--components/UI/Tooltip",
   decorators: [
     (Story) => {
       return (

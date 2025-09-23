@@ -2,6 +2,16 @@
 
 @plugin "tailwindcss-animate";
 
+@theme {
+  --color-main: #fef2f2;
+  --color-project-gray: #5a5f70;
+  --color-light-gray: #5a5f70;
+  --color-dark-gray: #1c202e;
+  --color-orange-default: #ea580c;
+  --font-manrope: Manrope, sans-serif;
+  --font-ubuntu: Ubuntu, sans-serif;
+}
+
 body {
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",

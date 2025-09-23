@@ -1,7 +1,7 @@
 import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 import { z } from "zod";
 
-import { getAuthStoreState } from "@/stores";
+import { getIsLoggedIn } from "@/stores";
 
 const GuestLayout = () => {
   return <Outlet />;
@@ -13,10 +13,10 @@ export const Route = createFileRoute("/(public)/_guest")({
     redirect: z.string().optional().catch(""),
   }),
   beforeLoad: ({ search }) => {
-    const { token } = getAuthStoreState();
+    const isLoggedIn = getIsLoggedIn();
 
-    if (token) {
-      throw redirect({ to: search.redirect || "/" });
+    if (isLoggedIn) {
+      throw redirect({ to: search.redirect || "/e-commerce" });
     }
   },
 });

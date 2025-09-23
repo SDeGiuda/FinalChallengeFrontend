@@ -12,13 +12,9 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PrivateLayoutRouteImport } from './routes/_private/layout'
-import { Route as PrivatePageRouteImport } from './routes/_private/page'
 import { Route as publicGuestLayoutRouteImport } from './routes/(public)/_guest/layout'
-import { Route as PrivateUsersPageRouteImport } from './routes/_private/users/page'
-import { Route as PrivateDashboardPageRouteImport } from './routes/_private/dashboard.page'
-import { Route as publicTermsPageRouteImport } from './routes/(public)/terms.page'
-import { Route as publicGuestRegisterPageRouteImport } from './routes/(public)/_guest/register.page'
-import { Route as publicGuestLoginPageRouteImport } from './routes/(public)/_guest/login/page'
+import { Route as PrivateECommercePageRouteImport } from './routes/_private/e-commerce/page'
+import { Route as publicGuestSignUpPageRouteImport } from './routes/(public)/_guest/sign-up/page'
 
 const publicRouteImport = createFileRoute('/(public)')()
 
@@ -30,85 +26,51 @@ const PrivateLayoutRoute = PrivateLayoutRouteImport.update({
   id: '/_private',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PrivatePageRoute = PrivatePageRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => PrivateLayoutRoute,
-} as any)
 const publicGuestLayoutRoute = publicGuestLayoutRouteImport.update({
   id: '/_guest',
   getParentRoute: () => publicRoute,
 } as any)
-const PrivateUsersPageRoute = PrivateUsersPageRouteImport.update({
-  id: '/users/',
-  path: '/users/',
+const PrivateECommercePageRoute = PrivateECommercePageRouteImport.update({
+  id: '/e-commerce/',
+  path: '/e-commerce/',
   getParentRoute: () => PrivateLayoutRoute,
 } as any)
-const PrivateDashboardPageRoute = PrivateDashboardPageRouteImport.update({
-  id: '/dashboard/',
-  path: '/dashboard/',
-  getParentRoute: () => PrivateLayoutRoute,
-} as any)
-const publicTermsPageRoute = publicTermsPageRouteImport.update({
-  id: '/terms/',
-  path: '/terms/',
-  getParentRoute: () => publicRoute,
-} as any)
-const publicGuestRegisterPageRoute = publicGuestRegisterPageRouteImport.update({
-  id: '/register/',
-  path: '/register/',
-  getParentRoute: () => publicGuestLayoutRoute,
-} as any)
-const publicGuestLoginPageRoute = publicGuestLoginPageRouteImport.update({
-  id: '/login/',
-  path: '/login/',
+const publicGuestSignUpPageRoute = publicGuestSignUpPageRouteImport.update({
+  id: '/sign-up/',
+  path: '/sign-up/',
   getParentRoute: () => publicGuestLayoutRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof PrivatePageRoute
-  '/terms': typeof publicTermsPageRoute
-  '/dashboard': typeof PrivateDashboardPageRoute
-  '/users': typeof PrivateUsersPageRoute
-  '/login': typeof publicGuestLoginPageRoute
-  '/register': typeof publicGuestRegisterPageRoute
+  '/': typeof publicGuestLayoutRouteWithChildren
+  '/e-commerce': typeof PrivateECommercePageRoute
+  '/sign-up': typeof publicGuestSignUpPageRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof PrivatePageRoute
-  '/terms': typeof publicTermsPageRoute
-  '/dashboard': typeof PrivateDashboardPageRoute
-  '/users': typeof PrivateUsersPageRoute
-  '/login': typeof publicGuestLoginPageRoute
-  '/register': typeof publicGuestRegisterPageRoute
+  '/': typeof publicGuestLayoutRouteWithChildren
+  '/e-commerce': typeof PrivateECommercePageRoute
+  '/sign-up': typeof publicGuestSignUpPageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_private': typeof PrivateLayoutRouteWithChildren
   '/(public)': typeof publicRouteWithChildren
   '/(public)/_guest': typeof publicGuestLayoutRouteWithChildren
-  '/_private/': typeof PrivatePageRoute
-  '/(public)/terms/': typeof publicTermsPageRoute
-  '/_private/dashboard/': typeof PrivateDashboardPageRoute
-  '/_private/users/': typeof PrivateUsersPageRoute
-  '/(public)/_guest/login/': typeof publicGuestLoginPageRoute
-  '/(public)/_guest/register/': typeof publicGuestRegisterPageRoute
+  '/_private/e-commerce/': typeof PrivateECommercePageRoute
+  '/(public)/_guest/sign-up/': typeof publicGuestSignUpPageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/terms' | '/dashboard' | '/users' | '/login' | '/register'
+  fullPaths: '/' | '/e-commerce' | '/sign-up'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/terms' | '/dashboard' | '/users' | '/login' | '/register'
+  to: '/' | '/e-commerce' | '/sign-up'
   id:
     | '__root__'
     | '/_private'
     | '/(public)'
     | '/(public)/_guest'
-    | '/_private/'
-    | '/(public)/terms/'
-    | '/_private/dashboard/'
-    | '/_private/users/'
-    | '/(public)/_guest/login/'
-    | '/(public)/_guest/register/'
+    | '/_private/e-commerce/'
+    | '/(public)/_guest/sign-up/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,13 +94,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivateLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_private/': {
-      id: '/_private/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof PrivatePageRouteImport
-      parentRoute: typeof PrivateLayoutRoute
-    }
     '/(public)/_guest': {
       id: '/(public)/_guest'
       path: '/'
@@ -146,54 +101,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof publicGuestLayoutRouteImport
       parentRoute: typeof publicRoute
     }
-    '/_private/users/': {
-      id: '/_private/users/'
-      path: '/users'
-      fullPath: '/users'
-      preLoaderRoute: typeof PrivateUsersPageRouteImport
+    '/_private/e-commerce/': {
+      id: '/_private/e-commerce/'
+      path: '/e-commerce'
+      fullPath: '/e-commerce'
+      preLoaderRoute: typeof PrivateECommercePageRouteImport
       parentRoute: typeof PrivateLayoutRoute
     }
-    '/_private/dashboard/': {
-      id: '/_private/dashboard/'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof PrivateDashboardPageRouteImport
-      parentRoute: typeof PrivateLayoutRoute
-    }
-    '/(public)/terms/': {
-      id: '/(public)/terms/'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof publicTermsPageRouteImport
-      parentRoute: typeof publicRoute
-    }
-    '/(public)/_guest/register/': {
-      id: '/(public)/_guest/register/'
-      path: '/register'
-      fullPath: '/register'
-      preLoaderRoute: typeof publicGuestRegisterPageRouteImport
-      parentRoute: typeof publicGuestLayoutRoute
-    }
-    '/(public)/_guest/login/': {
-      id: '/(public)/_guest/login/'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof publicGuestLoginPageRouteImport
+    '/(public)/_guest/sign-up/': {
+      id: '/(public)/_guest/sign-up/'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof publicGuestSignUpPageRouteImport
       parentRoute: typeof publicGuestLayoutRoute
     }
   }
 }
 
 interface PrivateLayoutRouteChildren {
-  PrivatePageRoute: typeof PrivatePageRoute
-  PrivateDashboardPageRoute: typeof PrivateDashboardPageRoute
-  PrivateUsersPageRoute: typeof PrivateUsersPageRoute
+  PrivateECommercePageRoute: typeof PrivateECommercePageRoute
 }
 
 const PrivateLayoutRouteChildren: PrivateLayoutRouteChildren = {
-  PrivatePageRoute: PrivatePageRoute,
-  PrivateDashboardPageRoute: PrivateDashboardPageRoute,
-  PrivateUsersPageRoute: PrivateUsersPageRoute,
+  PrivateECommercePageRoute: PrivateECommercePageRoute,
 }
 
 const PrivateLayoutRouteWithChildren = PrivateLayoutRoute._addFileChildren(
@@ -201,13 +131,11 @@ const PrivateLayoutRouteWithChildren = PrivateLayoutRoute._addFileChildren(
 )
 
 interface publicGuestLayoutRouteChildren {
-  publicGuestLoginPageRoute: typeof publicGuestLoginPageRoute
-  publicGuestRegisterPageRoute: typeof publicGuestRegisterPageRoute
+  publicGuestSignUpPageRoute: typeof publicGuestSignUpPageRoute
 }
 
 const publicGuestLayoutRouteChildren: publicGuestLayoutRouteChildren = {
-  publicGuestLoginPageRoute: publicGuestLoginPageRoute,
-  publicGuestRegisterPageRoute: publicGuestRegisterPageRoute,
+  publicGuestSignUpPageRoute: publicGuestSignUpPageRoute,
 }
 
 const publicGuestLayoutRouteWithChildren =
@@ -215,12 +143,10 @@ const publicGuestLayoutRouteWithChildren =
 
 interface publicRouteChildren {
   publicGuestLayoutRoute: typeof publicGuestLayoutRouteWithChildren
-  publicTermsPageRoute: typeof publicTermsPageRoute
 }
 
 const publicRouteChildren: publicRouteChildren = {
   publicGuestLayoutRoute: publicGuestLayoutRouteWithChildren,
-  publicTermsPageRoute: publicTermsPageRoute,
 }
 
 const publicRouteWithChildren =

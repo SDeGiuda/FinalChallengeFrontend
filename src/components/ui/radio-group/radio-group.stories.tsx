@@ -8,7 +8,7 @@ const meta: Meta<typeof RadioGroup.Root> = {
   component: RadioGroup.Root,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/RadioGroup",
+  title: "--components/UI/RadioGroup",
 } satisfies Meta<typeof RadioGroup.Root>;
 
 export default meta;

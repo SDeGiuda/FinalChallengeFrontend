@@ -7,7 +7,7 @@ const meta = {
   component: Accordion.Root,
   parameters: { layout: "padded" },
   tags: ["autodocs"],
-  title: "Components/UI/Accordion",
+  title: "--components/UI/Accordion",
 } satisfies Meta<ComponentProps<typeof Accordion.Root>>;
 
 export default meta;

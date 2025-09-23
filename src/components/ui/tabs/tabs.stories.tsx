@@ -6,7 +6,7 @@ const meta: Meta<typeof Tabs.Root> = {
   component: Tabs.Root,
   parameters: { layout: "padded" },
   tags: ["autodocs"],
-  title: "Components/UI/Tabs",
+  title: "--components/UI/Tabs",
 } satisfies Meta<typeof Tabs.Root>;
 
 export default meta;

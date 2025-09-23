@@ -9,7 +9,7 @@ const meta: Meta<typeof PasswordInput> = {
   component: PasswordInput,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/PasswordInput",
+  title: "--components/UI/PasswordInput",
 } satisfies Meta<typeof PasswordInput>;
 
 export default meta;
