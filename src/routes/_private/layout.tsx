@@ -2,9 +2,7 @@ import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 
 import { getIsLoggedIn } from "@/stores";
 
-const PrivateLayout = () => {
-  return <Outlet />;
-};
+const PrivateLayout = () => <Outlet />;
 
 export const Route = createFileRoute("/_private")({
   beforeLoad: ({ location }) => {

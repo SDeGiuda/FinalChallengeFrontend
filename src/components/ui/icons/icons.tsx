@@ -28,13 +28,8 @@ const AVAILABLE_ICONIFY_ICONS = {
   Lock: "lock",
 };
 
-export const initializeIcons = () => {
-  return loadIcons(
-    Object.values(AVAILABLE_ICONIFY_ICONS).map((icon) => {
-      return `${LUCIDE_PREFIX}${icon}`;
-    }),
-  );
-};
+export const initializeIcons = () =>
+  loadIcons(Object.values(AVAILABLE_ICONIFY_ICONS).map((icon) => `${LUCIDE_PREFIX}${icon}`));
 
 const iconsVariants = tv({
   slots: {
@@ -57,14 +52,12 @@ const { icon, wrapper } = iconsVariants();
 type IconifyIconProps = Omit<IconProps, "icon">;
 
 const iconifyIcons = Object.fromEntries(
-  Object.entries(AVAILABLE_ICONIFY_ICONS).map(([key, value]) => {
-    return [
-      key,
-      ({ className, ...rest }: IconifyIconProps) => {
-        return <Icon className={icon({ className })} icon={`${LUCIDE_PREFIX}${value}`} {...rest} />;
-      },
-    ];
-  }),
+  Object.entries(AVAILABLE_ICONIFY_ICONS).map(([key, value]) => [
+    key,
+    ({ className, ...rest }: IconifyIconProps) => (
+      <Icon className={icon({ className })} icon={`${LUCIDE_PREFIX}${value}`} {...rest} />
+    ),
+  ]),
 ) as Record<keyof typeof AVAILABLE_ICONIFY_ICONS, (props: IconifyIconProps) => JSX.Element>;
 
 export const Icons = { ...iconifyIcons } as const;

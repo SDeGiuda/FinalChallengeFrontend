@@ -33,17 +33,15 @@ export const Default: Story = {
     return (
       <div className="flex flex-col gap-2">
         <RadioGroup.Root onValueChange={setSelectedItem}>
-          {items.map((item) => {
-            return (
-              <div className="flex items-center space-x-2" key={item.value}>
-                <RadioGroup.Item id={item.value} value={item.value}>
-                  <RadioGroup.Indicator />
-                </RadioGroup.Item>
+          {items.map((item) => (
+            <div className="flex items-center space-x-2" key={item.value}>
+              <RadioGroup.Item id={item.value} value={item.value}>
+                <RadioGroup.Indicator />
+              </RadioGroup.Item>
 
-                <Label htmlFor={item.value}>{item.label}</Label>
-              </div>
-            );
-          })}
+              <Label htmlFor={item.value}>{item.label}</Label>
+            </div>
+          ))}
         </RadioGroup.Root>
         <p className="text-sm font-semibold">Selected item: {selectedItem}</p>
       </div>
@@ -52,21 +50,17 @@ export const Default: Story = {
 };
 
 export const DisabledGroup: Story = {
-  render: () => {
-    return (
-      <RadioGroup.Root disabled>
-        {disabledGroupItems.map((item) => {
-          return (
-            <div className="flex items-center space-x-2" key={item.value}>
-              <RadioGroup.Item id={item.value} value={item.value} checked>
-                <RadioGroup.Indicator />
-              </RadioGroup.Item>
+  render: () => (
+    <RadioGroup.Root disabled>
+      {disabledGroupItems.map((item) => (
+        <div className="flex items-center space-x-2" key={item.value}>
+          <RadioGroup.Item id={item.value} value={item.value} checked>
+            <RadioGroup.Indicator />
+          </RadioGroup.Item>
 
-              <Label htmlFor={item.value}>{item.label}</Label>
-            </div>
-          );
-        })}
-      </RadioGroup.Root>
-    );
-  },
+          <Label htmlFor={item.value}>{item.label}</Label>
+        </div>
+      ))}
+    </RadioGroup.Root>
+  ),
 };

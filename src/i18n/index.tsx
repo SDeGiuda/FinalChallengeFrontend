@@ -24,9 +24,9 @@ i18n.use(initReactI18next).init({
   resources,
 });
 
-export const I18nextProvider = ({ children }: PropsWithChildren) => {
-  return <ReactI18nextProvider i18n={i18n}>{children}</ReactI18nextProvider>;
-};
+export const I18nextProvider = ({ children }: PropsWithChildren) => (
+  <ReactI18nextProvider i18n={i18n}>{children}</ReactI18nextProvider>
+);
 
 export default i18n;
 

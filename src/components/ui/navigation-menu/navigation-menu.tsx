@@ -51,113 +51,97 @@ const Root = ({
   ...props
 }: ComponentProps<typeof NavigationMenuPrimitive.Root> & {
   viewport?: boolean;
-}) => {
-  return (
-    <NavigationMenuPrimitive.Root
-      className={root({ className })}
-      data-slot="navigation-menu"
-      data-viewport={viewport}
-      {...props}
-    >
-      {children}
+}) => (
+  <NavigationMenuPrimitive.Root
+    className={root({ className })}
+    data-slot="navigation-menu"
+    data-viewport={viewport}
+    {...props}
+  >
+    {children}
 
-      {viewport ? <Viewport /> : null}
-    </NavigationMenuPrimitive.Root>
-  );
-};
+    {viewport ? <Viewport /> : null}
+  </NavigationMenuPrimitive.Root>
+);
 
-const List = ({ className, ...props }: ComponentProps<typeof NavigationMenuPrimitive.List>) => {
-  return (
-    <NavigationMenuPrimitive.List
-      className={list({ className })}
-      data-slot="navigation-menu-list"
-      {...props}
-    />
-  );
-};
+const List = ({ className, ...props }: ComponentProps<typeof NavigationMenuPrimitive.List>) => (
+  <NavigationMenuPrimitive.List
+    className={list({ className })}
+    data-slot="navigation-menu-list"
+    {...props}
+  />
+);
 
-const Item = ({ className, ...props }: ComponentProps<typeof NavigationMenuPrimitive.Item>) => {
-  return (
-    <NavigationMenuPrimitive.Item
-      className={item({ className })}
-      data-slot="navigation-menu-item"
-      {...props}
-    />
-  );
-};
+const Item = ({ className, ...props }: ComponentProps<typeof NavigationMenuPrimitive.Item>) => (
+  <NavigationMenuPrimitive.Item
+    className={item({ className })}
+    data-slot="navigation-menu-item"
+    {...props}
+  />
+);
 
 const Trigger = ({
   children,
   className,
   ...props
-}: ComponentProps<typeof NavigationMenuPrimitive.Trigger>) => {
-  return (
-    <NavigationMenuPrimitive.Trigger
-      className={trigger({ className })}
-      data-slot="navigation-menu-trigger"
-      {...props}
-    >
-      {children}
+}: ComponentProps<typeof NavigationMenuPrimitive.Trigger>) => (
+  <NavigationMenuPrimitive.Trigger
+    className={trigger({ className })}
+    data-slot="navigation-menu-trigger"
+    {...props}
+  >
+    {children}
 
-      <Icons.ChevronDown aria-hidden="true" className={triggerIcon()} />
-    </NavigationMenuPrimitive.Trigger>
-  );
-};
+    <Icons.ChevronDown aria-hidden="true" className={triggerIcon()} />
+  </NavigationMenuPrimitive.Trigger>
+);
 
 const Content = ({
   className,
   ...props
-}: ComponentProps<typeof NavigationMenuPrimitive.Content>) => {
-  return (
-    <NavigationMenuPrimitive.Content
-      className={content({ className })}
-      data-slot="navigation-menu-content"
-      {...props}
-    />
-  );
-};
+}: ComponentProps<typeof NavigationMenuPrimitive.Content>) => (
+  <NavigationMenuPrimitive.Content
+    className={content({ className })}
+    data-slot="navigation-menu-content"
+    {...props}
+  />
+);
 
 const Viewport = ({
   className,
   ...props
-}: ComponentProps<typeof NavigationMenuPrimitive.Viewport>) => {
-  return (
-    <div className={viewportWrapper()}>
-      <NavigationMenuPrimitive.Viewport
-        className={viewport({ className })}
-        data-slot="navigation-menu-viewport"
-        {...props}
-      />
-    </div>
-  );
-};
+}: ComponentProps<typeof NavigationMenuPrimitive.Viewport>) => (
+  <div className={viewportWrapper()}>
+    <NavigationMenuPrimitive.Viewport
+      className={viewport({ className })}
+      data-slot="navigation-menu-viewport"
+      {...props}
+    />
+  </div>
+);
 
-const NavigationMenuLink = ({ className, ...props }: LinkProps & Styled) => {
-  return (
-    <NavigationMenuPrimitive.Link
-      className={link({ className })}
-      data-slot="navigation-menu-link"
-      asChild
-    >
-      <Link activeProps={{ className: linkActive({ className }) }} {...props} />
-    </NavigationMenuPrimitive.Link>
-  );
-};
+const NavigationMenuLink = ({ className, ...props }: LinkProps & Styled) => (
+  <NavigationMenuPrimitive.Link
+    className={link({ className })}
+    data-slot="navigation-menu-link"
+    asChild
+  >
+    <Link activeProps={{ className: linkActive({ className }) }} {...props} />
+  </NavigationMenuPrimitive.Link>
+);
 
 const Indicator = ({
   className,
   ...props
-}: ComponentProps<typeof NavigationMenuPrimitive.Indicator>) => {
-  return (
-    <NavigationMenuPrimitive.Indicator
-      className={indicator({ className })}
-      data-slot="navigation-menu-indicator"
-      {...props}
-    >
-      <div className={indicatorButton()} />
-    </NavigationMenuPrimitive.Indicator>
-  );
-};
+}: ComponentProps<typeof NavigationMenuPrimitive.Indicator>) => (
+  <NavigationMenuPrimitive.Indicator
+    className={indicator({ className })}
+    data-slot="navigation-menu-indicator"
+    {...props}
+  >
+    <div className={indicatorButton()} />
+  </NavigationMenuPrimitive.Indicator>
+);
 
 export const NavigationMenu = {
   Root,

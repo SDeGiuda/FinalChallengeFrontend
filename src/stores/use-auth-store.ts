@@ -13,20 +13,10 @@ export type AuthStoreState = {
 };
 
 const useAuthStore = create<AuthStoreState>()(
-  persist(
-    (_) => {
-      return { isLoggedIn: false };
-    },
-    { name: "auth" },
-  ),
+  persist((_) => ({ isLoggedIn: false }), { name: "auth" }),
 );
 
-export const getIsLoggedIn = () => {
-  return useAuthStore.getState().isLoggedIn;
-};
+export const getIsLoggedIn = () => useAuthStore.getState().isLoggedIn;
 
-export const useSetIsLoggedIn = (isLoggedIn: boolean) => {
-  return useAuthStore.setState(() => {
-    return { isLoggedIn };
-  });
-};
+export const useSetIsLoggedIn = (isLoggedIn: boolean) =>
+  useAuthStore.setState(() => ({ isLoggedIn }));

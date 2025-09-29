@@ -16,35 +16,29 @@ const radioGroupVariants = tv({
 
 const { indicator, indicatorWrapper, item, root } = radioGroupVariants();
 
-const Root = ({ className, ...props }: ComponentProps<typeof RadioGroupPrimitive.Root>) => {
-  return (
-    <RadioGroupPrimitive.Root className={root({ className })} data-slot="radio-group" {...props} />
-  );
-};
+const Root = ({ className, ...props }: ComponentProps<typeof RadioGroupPrimitive.Root>) => (
+  <RadioGroupPrimitive.Root className={root({ className })} data-slot="radio-group" {...props} />
+);
 
 const Indicator = ({
   className,
   ...props
-}: ComponentProps<typeof RadioGroupPrimitive.Indicator>) => {
-  return (
-    <RadioGroupPrimitive.Indicator
-      className={indicatorWrapper({ className })}
-      data-slot="radio-group-indicator"
-      {...props}
-    >
-      <Icons.Circle className={indicator()} />
-    </RadioGroupPrimitive.Indicator>
-  );
-};
+}: ComponentProps<typeof RadioGroupPrimitive.Indicator>) => (
+  <RadioGroupPrimitive.Indicator
+    className={indicatorWrapper({ className })}
+    data-slot="radio-group-indicator"
+    {...props}
+  >
+    <Icons.Circle className={indicator()} />
+  </RadioGroupPrimitive.Indicator>
+);
 
-const Item = ({ className, ...props }: ComponentProps<typeof RadioGroupPrimitive.Item>) => {
-  return (
-    <RadioGroupPrimitive.Item
-      className={item({ className })}
-      data-slot="radio-group-item"
-      {...props}
-    />
-  );
-};
+const Item = ({ className, ...props }: ComponentProps<typeof RadioGroupPrimitive.Item>) => (
+  <RadioGroupPrimitive.Item
+    className={item({ className })}
+    data-slot="radio-group-item"
+    {...props}
+  />
+);
 
 export const RadioGroup = { Root, Item, Indicator };

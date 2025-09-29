@@ -14,24 +14,20 @@ const tabsVariants = tv({
 
 const { content, list, root, trigger } = tabsVariants();
 
-const Root = ({ className, ...props }: ComponentProps<typeof TabsPrimitive.Root>) => {
-  return <TabsPrimitive.Root className={root({ className })} data-slot="tabs" {...props} />;
-};
+const Root = ({ className, ...props }: ComponentProps<typeof TabsPrimitive.Root>) => (
+  <TabsPrimitive.Root className={root({ className })} data-slot="tabs" {...props} />
+);
 
-const List = ({ className, ...props }: ComponentProps<typeof TabsPrimitive.List>) => {
-  return <TabsPrimitive.List className={list({ className })} data-slot="tabs-list" {...props} />;
-};
+const List = ({ className, ...props }: ComponentProps<typeof TabsPrimitive.List>) => (
+  <TabsPrimitive.List className={list({ className })} data-slot="tabs-list" {...props} />
+);
 
-const Trigger = ({ className, ...props }: ComponentProps<typeof TabsPrimitive.Trigger>) => {
-  return (
-    <TabsPrimitive.Trigger className={trigger({ className })} data-slot="tabs-trigger" {...props} />
-  );
-};
+const Trigger = ({ className, ...props }: ComponentProps<typeof TabsPrimitive.Trigger>) => (
+  <TabsPrimitive.Trigger className={trigger({ className })} data-slot="tabs-trigger" {...props} />
+);
 
-const Content = ({ className, ...props }: ComponentProps<typeof TabsPrimitive.Content>) => {
-  return (
-    <TabsPrimitive.Content className={content({ className })} data-slot="tabs-content" {...props} />
-  );
-};
+const Content = ({ className, ...props }: ComponentProps<typeof TabsPrimitive.Content>) => (
+  <TabsPrimitive.Content className={content({ className })} data-slot="tabs-content" {...props} />
+);
 
 export const Tabs = { Root, List, Trigger, Content };

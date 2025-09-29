@@ -7,9 +7,7 @@ export const PasswordInput = (props: ComponentProps<typeof Input>) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
-    setIsPasswordVisible((prev) => {
-      return !prev;
-    });
+    setIsPasswordVisible((prev) => !prev);
   };
 
   return (

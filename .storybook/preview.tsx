@@ -10,16 +10,14 @@ import "@/styles.css";
 
 const preview: Preview = {
   decorators: [
-    (Story) => {
-      return (
-        <RouterProvider
-          router={createRouter({
-            history: createMemoryHistory(),
-            routeTree: createRootRoute({ component: Story }),
-          })}
-        />
-      );
-    },
+    (Story) => (
+      <RouterProvider
+        router={createRouter({
+          history: createMemoryHistory(),
+          routeTree: createRootRoute({ component: Story }),
+        })}
+      />
+    ),
   ],
   parameters: { controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } } },
 };

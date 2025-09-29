@@ -4,16 +4,9 @@ const allowedDomains = ["@gmail.com", "@hotmail.com", "@lightit.io"];
 
 export const signUpSchema = z
   .object({
-    email: z.email().refine(
-      (val) => {
-        return allowedDomains.some((domain) => {
-          return val.endsWith(domain);
-        });
-      },
-      {
-        message: "Email domain not allowed",
-      },
-    ),
+    email: z.email().refine((val) => allowedDomains.some((domain) => val.endsWith(domain)), {
+      message: "Email domain not allowed",
+    }),
     username: z
       .string()
       .min(1, "Username cannot be empty")
@@ -27,14 +20,9 @@ export const signUpSchema = z
       .regex(/[^A-Za-z0-9]/, "Must contain a special character"),
     confirmPassword: z.string(),
   })
-  .refine(
-    (data) => {
-      return data.password === data.confirmPassword;
-    },
-    {
-      message: "Passwords don't match",
-      path: ["confirmPassword"],
-    },
-  );
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
+  });
 
 export type SignUpFormData = z.infer<typeof signUpSchema>;

@@ -30,9 +30,9 @@ const selectVariants = tv({
 
 const { item, label, scrollButton, separator, trigger } = selectVariants();
 
-const Root = ({ ...props }: ComponentProps<typeof SelectPrimitive.Root>) => {
-  return <SelectPrimitive.Root data-slot="select" {...props} />;
-};
+const Root = ({ ...props }: ComponentProps<typeof SelectPrimitive.Root>) => (
+  <SelectPrimitive.Root data-slot="select" {...props} />
+);
 
 const Trigger = ({
   children,
@@ -41,21 +41,19 @@ const Trigger = ({
   ...props
 }: ComponentProps<typeof SelectPrimitive.Trigger> & {
   size?: "sm" | "default";
-}) => {
-  return (
-    <SelectPrimitive.Trigger
-      className={trigger({ className })}
-      data-size={size}
-      data-slot="select-trigger"
-      {...props}
-    >
-      {children}
-      <SelectPrimitive.Icon asChild>
-        <Icons.ChevronDown className="size-4 opacity-50" />
-      </SelectPrimitive.Icon>
-    </SelectPrimitive.Trigger>
-  );
-};
+}) => (
+  <SelectPrimitive.Trigger
+    className={trigger({ className })}
+    data-size={size}
+    data-slot="select-trigger"
+    {...props}
+  >
+    {children}
+    <SelectPrimitive.Icon asChild>
+      <Icons.ChevronDown className="size-4 opacity-50" />
+    </SelectPrimitive.Icon>
+  </SelectPrimitive.Trigger>
+);
 
 const Content = ({
   children,
@@ -83,72 +81,62 @@ const Content = ({
   );
 };
 
-const Item = ({ children, className, ...props }: ComponentProps<typeof SelectPrimitive.Item>) => {
-  return (
-    <SelectPrimitive.Item className={item({ className })} data-slot="select-item" {...props}>
-      <span className="absolute right-2 flex size-3.5 items-center justify-center">
-        <SelectPrimitive.ItemIndicator>
-          <Icons.Check className="size-4" />
-        </SelectPrimitive.ItemIndicator>
-      </span>
-      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-    </SelectPrimitive.Item>
-  );
-};
+const Item = ({ children, className, ...props }: ComponentProps<typeof SelectPrimitive.Item>) => (
+  <SelectPrimitive.Item className={item({ className })} data-slot="select-item" {...props}>
+    <span className="absolute right-2 flex size-3.5 items-center justify-center">
+      <SelectPrimitive.ItemIndicator>
+        <Icons.Check className="size-4" />
+      </SelectPrimitive.ItemIndicator>
+    </span>
+    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+  </SelectPrimitive.Item>
+);
 
-const Label = ({ className, ...props }: ComponentProps<typeof SelectPrimitive.Label>) => {
-  return (
-    <SelectPrimitive.Label className={label({ className })} data-slot="select-label" {...props} />
-  );
-};
+const Label = ({ className, ...props }: ComponentProps<typeof SelectPrimitive.Label>) => (
+  <SelectPrimitive.Label className={label({ className })} data-slot="select-label" {...props} />
+);
 
-const Separator = ({ className, ...props }: ComponentProps<typeof SelectPrimitive.Separator>) => {
-  return (
-    <SelectPrimitive.Separator
-      className={separator({ className })}
-      data-slot="select-separator"
-      {...props}
-    />
-  );
-};
+const Separator = ({ className, ...props }: ComponentProps<typeof SelectPrimitive.Separator>) => (
+  <SelectPrimitive.Separator
+    className={separator({ className })}
+    data-slot="select-separator"
+    {...props}
+  />
+);
 
 const ScrollUpButton = ({
   className,
   ...props
-}: ComponentProps<typeof SelectPrimitive.ScrollUpButton>) => {
-  return (
-    <SelectPrimitive.ScrollUpButton
-      className={scrollButton({ className })}
-      data-slot="select-scroll-up-button"
-      {...props}
-    >
-      <Icons.ChevronUp className="size-4" />
-    </SelectPrimitive.ScrollUpButton>
-  );
-};
+}: ComponentProps<typeof SelectPrimitive.ScrollUpButton>) => (
+  <SelectPrimitive.ScrollUpButton
+    className={scrollButton({ className })}
+    data-slot="select-scroll-up-button"
+    {...props}
+  >
+    <Icons.ChevronUp className="size-4" />
+  </SelectPrimitive.ScrollUpButton>
+);
 
 const ScrollDownButton = ({
   className,
   ...props
-}: ComponentProps<typeof SelectPrimitive.ScrollDownButton>) => {
-  return (
-    <SelectPrimitive.ScrollDownButton
-      className={scrollButton({ className })}
-      data-slot="select-scroll-down-button"
-      {...props}
-    >
-      <Icons.ChevronDown className="size-4" />
-    </SelectPrimitive.ScrollDownButton>
-  );
-};
+}: ComponentProps<typeof SelectPrimitive.ScrollDownButton>) => (
+  <SelectPrimitive.ScrollDownButton
+    className={scrollButton({ className })}
+    data-slot="select-scroll-down-button"
+    {...props}
+  >
+    <Icons.ChevronDown className="size-4" />
+  </SelectPrimitive.ScrollDownButton>
+);
 
-const Value = (props: ComponentProps<typeof SelectPrimitive.Value>) => {
-  return <SelectPrimitive.Value data-slot="select-value" {...props} />;
-};
+const Value = (props: ComponentProps<typeof SelectPrimitive.Value>) => (
+  <SelectPrimitive.Value data-slot="select-value" {...props} />
+);
 
-const Group = (props: ComponentProps<typeof SelectPrimitive.Group>) => {
-  return <SelectPrimitive.Group data-slot="select-group" {...props} />;
-};
+const Group = (props: ComponentProps<typeof SelectPrimitive.Group>) => (
+  <SelectPrimitive.Group data-slot="select-group" {...props} />
+);
 
 export const Select = {
   Root,

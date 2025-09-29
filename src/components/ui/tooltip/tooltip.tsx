@@ -16,41 +16,37 @@ const { arrow, content } = tooltipVariants();
 export const TooltipProvider = ({
   delayDuration = 0,
   ...props
-}: ComponentProps<typeof TooltipPrimitive.Provider>) => {
-  return (
-    <TooltipPrimitive.Provider
-      data-slot="tooltip-provider"
-      delayDuration={delayDuration}
-      {...props}
-    />
-  );
-};
+}: ComponentProps<typeof TooltipPrimitive.Provider>) => (
+  <TooltipPrimitive.Provider
+    data-slot="tooltip-provider"
+    delayDuration={delayDuration}
+    {...props}
+  />
+);
 
-const Root = (props: ComponentProps<typeof TooltipPrimitive.Root>) => {
-  return <TooltipPrimitive.Root data-slot="tooltip" {...props} />;
-};
+const Root = (props: ComponentProps<typeof TooltipPrimitive.Root>) => (
+  <TooltipPrimitive.Root data-slot="tooltip" {...props} />
+);
 
-const Trigger = (props: ComponentProps<typeof TooltipPrimitive.Trigger>) => {
-  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
-};
+const Trigger = (props: ComponentProps<typeof TooltipPrimitive.Trigger>) => (
+  <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />
+);
 
 const Content = ({
   children,
   className,
   ...props
-}: ComponentProps<typeof TooltipPrimitive.Content>) => {
-  return (
-    <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Content
-        className={content({ className })}
-        data-slot="tooltip-content"
-        {...props}
-      >
-        {children}
-        <TooltipPrimitive.Arrow className={arrow({ className })} />
-      </TooltipPrimitive.Content>
-    </TooltipPrimitive.Portal>
-  );
-};
+}: ComponentProps<typeof TooltipPrimitive.Content>) => (
+  <TooltipPrimitive.Portal>
+    <TooltipPrimitive.Content
+      className={content({ className })}
+      data-slot="tooltip-content"
+      {...props}
+    >
+      {children}
+      <TooltipPrimitive.Arrow className={arrow({ className })} />
+    </TooltipPrimitive.Content>
+  </TooltipPrimitive.Portal>
+);
 
 export const Tooltip = { Root, Trigger, Content };

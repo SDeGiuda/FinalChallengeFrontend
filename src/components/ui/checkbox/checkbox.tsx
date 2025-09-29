@@ -16,14 +16,12 @@ const { icon, indicator, root } = checkboxVariants();
 
 export type CheckboxProps = ComponentProps<typeof CheckboxPrimitive.Root>;
 
-const Checkbox = ({ className, ...props }: CheckboxProps) => {
-  return (
-    <CheckboxPrimitive.Root className={root({ className })} data-slot="checkbox" {...props}>
-      <CheckboxPrimitive.Indicator className={indicator()} data-slot="checkbox-indicator">
-        <Icons.Check className={icon()} />
-      </CheckboxPrimitive.Indicator>
-    </CheckboxPrimitive.Root>
-  );
-};
+const Checkbox = ({ className, ...props }: CheckboxProps) => (
+  <CheckboxPrimitive.Root className={root({ className })} data-slot="checkbox" {...props}>
+    <CheckboxPrimitive.Indicator className={indicator()} data-slot="checkbox-indicator">
+      <Icons.Check className={icon()} />
+    </CheckboxPrimitive.Indicator>
+  </CheckboxPrimitive.Root>
+);
 
 export { Checkbox };

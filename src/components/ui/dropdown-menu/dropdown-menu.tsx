@@ -37,44 +37,40 @@ const {
   trigger,
 } = dropdownVariants();
 
-const Root = ({ ...props }: ComponentProps<typeof DropdownMenuPrimitive.Root>) => {
-  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
-};
+const Root = ({ ...props }: ComponentProps<typeof DropdownMenuPrimitive.Root>) => (
+  <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />
+);
 
-const Portal = ({ ...props }: ComponentProps<typeof DropdownMenuPrimitive.Portal>) => {
-  return <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />;
-};
+const Portal = ({ ...props }: ComponentProps<typeof DropdownMenuPrimitive.Portal>) => (
+  <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />
+);
 
-const Trigger = ({ className, ...props }: ComponentProps<typeof DropdownMenuPrimitive.Trigger>) => {
-  return (
-    <DropdownMenuPrimitive.Trigger
-      className={trigger({ className })}
-      data-slot="dropdown-menu-trigger"
-      {...props}
-    />
-  );
-};
+const Trigger = ({ className, ...props }: ComponentProps<typeof DropdownMenuPrimitive.Trigger>) => (
+  <DropdownMenuPrimitive.Trigger
+    className={trigger({ className })}
+    data-slot="dropdown-menu-trigger"
+    {...props}
+  />
+);
 
 const Content = ({
   className,
   sideOffset = 4,
   ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.Content>) => {
-  return (
-    <DropdownMenuPrimitive.Portal>
-      <DropdownMenuPrimitive.Content
-        className={content({ className })}
-        data-slot="dropdown-menu-content"
-        sideOffset={sideOffset}
-        {...props}
-      />
-    </DropdownMenuPrimitive.Portal>
-  );
-};
+}: ComponentProps<typeof DropdownMenuPrimitive.Content>) => (
+  <DropdownMenuPrimitive.Portal>
+    <DropdownMenuPrimitive.Content
+      className={content({ className })}
+      data-slot="dropdown-menu-content"
+      sideOffset={sideOffset}
+      {...props}
+    />
+  </DropdownMenuPrimitive.Portal>
+);
 
-const Group = ({ ...props }: ComponentProps<typeof DropdownMenuPrimitive.Group>) => {
-  return <DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />;
-};
+const Group = ({ ...props }: ComponentProps<typeof DropdownMenuPrimitive.Group>) => (
+  <DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />
+);
 
 const Item = ({
   className,
@@ -84,65 +80,59 @@ const Item = ({
 }: ComponentProps<typeof DropdownMenuPrimitive.Item> & {
   inset?: boolean;
   variant?: "default" | "destructive";
-}) => {
-  return (
-    <DropdownMenuPrimitive.Item
-      className={item({ className })}
-      data-inset={inset}
-      data-slot="dropdown-menu-item"
-      data-variant={variant}
-      {...props}
-    />
-  );
-};
+}) => (
+  <DropdownMenuPrimitive.Item
+    className={item({ className })}
+    data-inset={inset}
+    data-slot="dropdown-menu-item"
+    data-variant={variant}
+    {...props}
+  />
+);
 
 const CheckboxItem = ({
   checked,
   children,
   className,
   ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) => {
-  return (
-    <DropdownMenuPrimitive.CheckboxItem
-      checked={checked}
-      className={checkboxItem({ className })}
-      data-slot="dropdown-menu-checkbox-item"
-      {...props}
-    >
-      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
-        <DropdownMenuPrimitive.ItemIndicator>
-          <Icons.Check />
-        </DropdownMenuPrimitive.ItemIndicator>
-      </span>
-      {children}
-    </DropdownMenuPrimitive.CheckboxItem>
-  );
-};
+}: ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) => (
+  <DropdownMenuPrimitive.CheckboxItem
+    checked={checked}
+    className={checkboxItem({ className })}
+    data-slot="dropdown-menu-checkbox-item"
+    {...props}
+  >
+    <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
+      <DropdownMenuPrimitive.ItemIndicator>
+        <Icons.Check />
+      </DropdownMenuPrimitive.ItemIndicator>
+    </span>
+    {children}
+  </DropdownMenuPrimitive.CheckboxItem>
+);
 
-const RadioGroup = ({ ...props }: ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) => {
-  return <DropdownMenuPrimitive.RadioGroup data-slot="dropdown-menu-radio-group" {...props} />;
-};
+const RadioGroup = ({ ...props }: ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) => (
+  <DropdownMenuPrimitive.RadioGroup data-slot="dropdown-menu-radio-group" {...props} />
+);
 
 const RadioItem = ({
   children,
   className,
   ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) => {
-  return (
-    <DropdownMenuPrimitive.RadioItem
-      className={radioItem({ className })}
-      data-slot="dropdown-menu-radio-item"
-      {...props}
-    >
-      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
-        <DropdownMenuPrimitive.ItemIndicator>
-          <Icons.Circle className="size-2 fill-current" />
-        </DropdownMenuPrimitive.ItemIndicator>
-      </span>
-      {children}
-    </DropdownMenuPrimitive.RadioItem>
-  );
-};
+}: ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) => (
+  <DropdownMenuPrimitive.RadioItem
+    className={radioItem({ className })}
+    data-slot="dropdown-menu-radio-item"
+    {...props}
+  >
+    <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
+      <DropdownMenuPrimitive.ItemIndicator>
+        <Icons.Circle className="size-2 fill-current" />
+      </DropdownMenuPrimitive.ItemIndicator>
+    </span>
+    {children}
+  </DropdownMenuPrimitive.RadioItem>
+);
 
 const Label = ({
   className,
@@ -150,37 +140,33 @@ const Label = ({
   ...props
 }: ComponentProps<typeof DropdownMenuPrimitive.Label> & {
   inset?: boolean;
-}) => {
-  return (
-    <DropdownMenuPrimitive.Label
-      className={label({ className })}
-      data-inset={inset}
-      data-slot="dropdown-menu-label"
-      {...props}
-    />
-  );
-};
+}) => (
+  <DropdownMenuPrimitive.Label
+    className={label({ className })}
+    data-inset={inset}
+    data-slot="dropdown-menu-label"
+    {...props}
+  />
+);
 
 const Separator = ({
   className,
   ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.Separator>) => {
-  return (
-    <DropdownMenuPrimitive.Separator
-      className={separator({ className })}
-      data-slot="dropdown-menu-separator"
-      {...props}
-    />
-  );
-};
+}: ComponentProps<typeof DropdownMenuPrimitive.Separator>) => (
+  <DropdownMenuPrimitive.Separator
+    className={separator({ className })}
+    data-slot="dropdown-menu-separator"
+    {...props}
+  />
+);
 
-const Shortcut = ({ className, ...props }: ComponentProps<"span">) => {
-  return <span className={shortcut({ className })} data-slot="dropdown-menu-shortcut" {...props} />;
-};
+const Shortcut = ({ className, ...props }: ComponentProps<"span">) => (
+  <span className={shortcut({ className })} data-slot="dropdown-menu-shortcut" {...props} />
+);
 
-const Sub = ({ ...props }: ComponentProps<typeof DropdownMenuPrimitive.Sub>) => {
-  return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />;
-};
+const Sub = ({ ...props }: ComponentProps<typeof DropdownMenuPrimitive.Sub>) => (
+  <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />
+);
 
 const SubTrigger = ({
   children,
@@ -189,33 +175,29 @@ const SubTrigger = ({
   ...props
 }: ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
   inset?: boolean;
-}) => {
-  return (
-    <DropdownMenuPrimitive.SubTrigger
-      className={subTrigger({ className })}
-      data-inset={inset}
-      data-slot="dropdown-menu-sub-trigger"
-      {...props}
-    >
-      {children}
+}) => (
+  <DropdownMenuPrimitive.SubTrigger
+    className={subTrigger({ className })}
+    data-inset={inset}
+    data-slot="dropdown-menu-sub-trigger"
+    {...props}
+  >
+    {children}
 
-      <Icons.ChevronRight className="ml-auto" />
-    </DropdownMenuPrimitive.SubTrigger>
-  );
-};
+    <Icons.ChevronRight className="ml-auto" />
+  </DropdownMenuPrimitive.SubTrigger>
+);
 
 const SubContent = ({
   className,
   ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.SubContent>) => {
-  return (
-    <DropdownMenuPrimitive.SubContent
-      className={subContent({ className })}
-      data-slot="dropdown-menu-sub-content"
-      {...props}
-    />
-  );
-};
+}: ComponentProps<typeof DropdownMenuPrimitive.SubContent>) => (
+  <DropdownMenuPrimitive.SubContent
+    className={subContent({ className })}
+    data-slot="dropdown-menu-sub-content"
+    {...props}
+  />
+);
 
 export const DropdownMenu = {
   Root,

@@ -29,24 +29,20 @@ export const Default: Story = {
             <NavigationMenu.Trigger>Routes</NavigationMenu.Trigger>
             <NavigationMenu.Content>
               <ul>
-                {routes.map(({ label, path }) => {
-                  return (
-                    <NavigationMenu.Link key={path} to={path}>
-                      {label}
-                    </NavigationMenu.Link>
-                  );
-                })}
+                {routes.map(({ label, path }) => (
+                  <NavigationMenu.Link key={path} to={path}>
+                    {label}
+                  </NavigationMenu.Link>
+                ))}
               </ul>
             </NavigationMenu.Content>
           </NavigationMenu.Item>
 
-          {routes.map(({ label, path }) => {
-            return (
-              <NavigationMenu.Link key={path} to={path}>
-                {label}
-              </NavigationMenu.Link>
-            );
-          })}
+          {routes.map(({ label, path }) => (
+            <NavigationMenu.Link key={path} to={path}>
+              {label}
+            </NavigationMenu.Link>
+          ))}
         </NavigationMenu.List>
       </NavigationMenu.Root>
     );

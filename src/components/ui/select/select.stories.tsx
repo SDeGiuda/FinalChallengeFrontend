@@ -25,55 +25,49 @@ const options = [
 ];
 
 export const Basic: Story = {
-  render: () => {
-    return (
-      <Select.Root>
-        <Select.Trigger>
-          <Select.Value placeholder="Select a fruit" />
-        </Select.Trigger>
+  render: () => (
+    <Select.Root>
+      <Select.Trigger>
+        <Select.Value placeholder="Select a fruit" />
+      </Select.Trigger>
 
-        <Select.Content>
-          {options.map((opt) => {
-            return (
-              <Select.Item disabled={opt.disabled} key={opt.value} value={opt.value}>
-                {opt.label}
-              </Select.Item>
-            );
-          })}
-        </Select.Content>
-      </Select.Root>
-    );
-  },
+      <Select.Content>
+        {options.map((opt) => (
+          <Select.Item disabled={opt.disabled} key={opt.value} value={opt.value}>
+            {opt.label}
+          </Select.Item>
+        ))}
+      </Select.Content>
+    </Select.Root>
+  ),
 };
 
 export const WithLabelAndSeparator: Story = {
-  render: () => {
-    return (
-      <Select.Root>
-        <Select.Trigger>
-          <Select.Value placeholder="Pick an option" />
-        </Select.Trigger>
+  render: () => (
+    <Select.Root>
+      <Select.Trigger>
+        <Select.Value placeholder="Pick an option" />
+      </Select.Trigger>
 
-        <Select.Content>
-          <Select.Group>
-            <Select.Label>Fruits</Select.Label>
+      <Select.Content>
+        <Select.Group>
+          <Select.Label>Fruits</Select.Label>
 
-            <Select.Item value="apple">Apple</Select.Item>
+          <Select.Item value="apple">Apple</Select.Item>
 
-            <Select.Item value="banana">Banana</Select.Item>
-          </Select.Group>
+          <Select.Item value="banana">Banana</Select.Item>
+        </Select.Group>
 
-          <Select.Separator />
+        <Select.Separator />
 
-          <Select.Group>
-            <Select.Label>Other</Select.Label>
+        <Select.Group>
+          <Select.Label>Other</Select.Label>
 
-            <Select.Item value="pineapple">Pineapple</Select.Item>
-          </Select.Group>
-        </Select.Content>
-      </Select.Root>
-    );
-  },
+          <Select.Item value="pineapple">Pineapple</Select.Item>
+        </Select.Group>
+      </Select.Content>
+    </Select.Root>
+  ),
 };
 
 export const Controlled: Story = {
@@ -90,13 +84,11 @@ export const Controlled: Story = {
           </Select.Trigger>
 
           <Select.Content>
-            {options.map((opt) => {
-              return (
-                <Select.Item disabled={opt.disabled} key={opt.value} value={opt.value}>
-                  {opt.label}
-                </Select.Item>
-              );
-            })}
+            {options.map((opt) => (
+              <Select.Item disabled={opt.disabled} key={opt.value} value={opt.value}>
+                {opt.label}
+              </Select.Item>
+            ))}
           </Select.Content>
         </Select.Root>
       </div>
