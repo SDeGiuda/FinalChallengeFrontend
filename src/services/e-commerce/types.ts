@@ -16,10 +16,7 @@ export type ProductsResponse = {
   limit: number;
 };
 
-export type SortOptions =
-  | { sortBy: "title" | "price"; order: "asc" | "desc" }
-  | { sortBy: null; order: null }
-  | {
-      sortBy: "favorites";
-      order: null;
-    };
+export type SortOptions = {
+  sortBy?: "title" | "price" | "favorites" | null;
+  order?: "asc" | "desc" | null;
+};

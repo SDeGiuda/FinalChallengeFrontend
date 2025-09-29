@@ -25,7 +25,7 @@ const config: Linter.Config[] = [
     plugins: { js },
     rules: {
       ...js.configs.recommended.rules,
-      "arrow-body-style": ["error", "always"],
+      "arrow-body-style": ["error", "as-needed"],
       curly: "warn",
       "no-console": "warn",
       "no-extra-boolean-cast": "error",

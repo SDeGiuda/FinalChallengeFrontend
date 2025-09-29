@@ -3,9 +3,7 @@ import { z } from "zod";
 
 import { getIsLoggedIn } from "@/stores";
 
-const GuestLayout = () => {
-  return <Outlet />;
-};
+const GuestLayout = () => <Outlet />;
 
 export const Route = createFileRoute("/(public)/_guest")({
   component: GuestLayout,

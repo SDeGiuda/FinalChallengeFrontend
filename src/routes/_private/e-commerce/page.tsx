@@ -49,9 +49,7 @@ export const ECommerce = () => {
       setDebouncedSearch(search);
     }, 700);
 
-    return () => {
-      return clearTimeout(handler);
-    };
+    return () => clearTimeout(handler);
   }, [search]);
 
   return (
@@ -66,12 +64,10 @@ export const ECommerce = () => {
               <input
                 className="h-10 w-full rounded-lg border border-gray-400 py-3 pl-5 text-start text-gray-400"
                 id="search-input"
-                onInput={(e: FormEvent<HTMLInputElement>) => {
-                  return setSearch(e.currentTarget.value);
-                }}
+                onInput={(e: FormEvent<HTMLInputElement>) => setSearch(e.currentTarget.value)}
                 placeholder="Search"
                 type="text"
-                value={search != "" ? search : undefined}
+                value={search ?? ""}
               />
               <ECommerceIcons.SearchIcon className="absolute top-2 right-4" />
             </div>
@@ -82,9 +78,7 @@ export const ECommerce = () => {
           <input
             className="my-3 h-10 w-full rounded-lg border border-black py-3 pl-6 text-start text-black lg:hidden"
             id="search-input-mobile"
-            onInput={(e: FormEvent<HTMLInputElement>) => {
-              return setSearch(e.currentTarget.value);
-            }}
+            onInput={(e: FormEvent<HTMLInputElement>) => setSearch(e.currentTarget.value)}
             placeholder="Search"
             type="text"
             value={search != "" ? search : undefined}
@@ -98,9 +92,7 @@ export const ECommerce = () => {
     </div>
   );
 };
-export type ProductSearchParams = {
-  sortBy?: "title" | "price" | "favorites" | null;
-  order?: "asc" | "desc" | null;
+export type ProductSearchParams = SortOptions & {
   search?: string;
 };
 

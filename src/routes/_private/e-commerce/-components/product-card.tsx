@@ -8,9 +8,7 @@ type ProductCardProps = {
 };
 
 export const ProductCard = ({ favorites, makeFavorite, product }: ProductCardProps) => {
-  const isFavorite = favorites.some((prod) => {
-    return prod.id === product.id;
-  });
+  const isFavorite = favorites.some((prod) => prod.id === product.id);
 
   return (
     <div className="z-0 flex h-120 w-60 flex-col justify-between gap-2 transition-transform duration-300 ease-in-out hover:scale-107">
@@ -23,9 +21,7 @@ export const ProductCard = ({ favorites, makeFavorite, product }: ProductCardPro
         <p className="font-manrope font-light text-light-gray"> € {product.price}</p>
         <ECommerceIcons.HeartIcon
           fill={isFavorite ? "red" : "none"}
-          onClick={() => {
-            return makeFavorite(product);
-          }}
+          onClick={() => makeFavorite(product)}
         />
       </div>
     </div>

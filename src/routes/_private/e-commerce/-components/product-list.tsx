@@ -1,4 +1,4 @@
-import { type JSX, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useProducts } from "@/services";
 import { FAVORITE_SORT_OPTION, type SortOptions } from "@/services/e-commerce";
@@ -13,31 +13,26 @@ export type Product = {
 };
 
 type ProductListProps = { sort: SortOptions; search?: string };
-export const ProductList = ({ search, sort }: ProductListProps): JSX.Element => {
+export const ProductList = ({ search, sort }: ProductListProps) => {
   const [favoriteProducts, setFavoriteProducts] = useState<Product[]>([]);
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useProducts(search, sort);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   const makeFavorite = (product: Product): void => {
-    setFavoriteProducts((prev) => {
-      return prev.find((p) => {
-        return p.id === product.id;
-      })
-        ? prev.filter((p) => {
-            return p.id !== product.id;
-          })
-        : [...prev, product];
-    });
+    setFavoriteProducts((prev) =>
+      prev.find((p) => p.id === product.id)
+        ? prev.filter((p) => p.id !== product.id)
+        : [...prev, product],
+    );
   };
 
   let products: Product[];
   if (sort.sortBy == FAVORITE_SORT_OPTION) {
-    products = favoriteProducts;
+    products = favoriteProducts.filter((p) =>
+      p.title.toLowerCase().includes(search?.toLowerCase() ?? ""),
+    );
   } else {
-    products =
-      data?.pages.flatMap((page) => {
-        return page.products;
-      }) ?? [];
+    products = data?.pages.flatMap((page) => page.products) ?? [];
   }
   const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
     const entry = entries[0];
@@ -80,16 +75,14 @@ export const ProductList = ({ search, sort }: ProductListProps): JSX.Element => 
   return (
     <div className="mt-5 flex w-full flex-col items-center gap-20">
       <div className="grid grid-cols-1 justify-items-center gap-40 md:mx-20 md:grid-cols-2 md:gap-9 lg:grid-cols-3">
-        {products.map((product) => {
-          return (
-            <ProductCard
-              favorites={favoriteProducts}
-              key={product.id}
-              makeFavorite={makeFavorite}
-              product={product}
-            />
-          );
-        })}
+        {products.map((product) => (
+          <ProductCard
+            favorites={favoriteProducts}
+            key={product.id}
+            makeFavorite={makeFavorite}
+            product={product}
+          />
+        ))}
       </div>
       <div ref={loadMoreRef}>{isFetchingNextPage ? <p>Loading ...</p> : null}</div>
     </div>

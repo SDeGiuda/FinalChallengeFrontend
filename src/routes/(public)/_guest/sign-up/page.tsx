@@ -25,12 +25,12 @@ const RegisterPage = () => {
 
   return (
     <div className="relative mr-3 flex h-full w-full max-w-full">
-      <icons.CompanyIcon className="absolute top-3 left-9 z-10 h-40 w-40 md:-top-2 md:h-32 md:w-32" />
+      <icons.CompanyIcon className="absolute top-3 left-9 z-10 size-40 md:-top-2 md:h-32 md:w-32" />
       <div className="hidden h-screen w-3/5 justify-self-end overflow-hidden md:block">
         <img
           alt="Man with a computer and a colorful background"
           className="h-full w-full object-cover object-center"
-          src="../../../../../public/big-image.jpg"
+          src="/big-image.jpg"
         />
       </div>
       {!hasSignedUp && <SignUpScreen setHasSignedUp={setHasSignedUp} />}

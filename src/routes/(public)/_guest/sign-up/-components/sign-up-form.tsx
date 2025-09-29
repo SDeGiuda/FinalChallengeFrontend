@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { type SignUpFormData, signUpSchema } from "@/services/sign-up-schema.tsx";
-import { FormSection } from "./form-section.tsx";
+import { FormInput } from "./form-input.tsx";
 import { icons } from "./icons.tsx";
 
 type SignUpFormProps = { setHasSignedUp: (hasSignedUp: boolean) => void };
@@ -20,7 +20,7 @@ export const SignUpForm = ({ setHasSignedUp }: SignUpFormProps) => {
 
   return (
     <form className="flex w-full flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
-      <FormSection
+      <FormInput
         Icon={icons.EmailIcon}
         error={errors.email?.message}
         placeholder="Enter email"
@@ -28,7 +28,7 @@ export const SignUpForm = ({ setHasSignedUp }: SignUpFormProps) => {
         type="email"
         {...register("email")}
       />
-      <FormSection
+      <FormInput
         Icon={icons.UserIcon}
         error={errors.username?.message}
         placeholder="Enter username"
@@ -36,7 +36,7 @@ export const SignUpForm = ({ setHasSignedUp }: SignUpFormProps) => {
         type="text"
         {...register("username")}
       />
-      <FormSection
+      <FormInput
         Icon={icons.PasswordIcon}
         error={errors.password?.message}
         placeholder="Enter password"
@@ -44,7 +44,7 @@ export const SignUpForm = ({ setHasSignedUp }: SignUpFormProps) => {
         type="password"
         {...register("password")}
       />
-      <FormSection
+      <FormInput
         Icon={icons.PasswordIcon}
         error={errors.confirmPassword?.message}
         placeholder="Confirm password"
