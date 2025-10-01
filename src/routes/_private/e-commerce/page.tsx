@@ -1,5 +1,5 @@
 import { type FormEvent, useEffect, useState } from "react";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, stripSearchParams, useNavigate } from "@tanstack/react-router";
 
 import { ECommerceIcons } from "@/routes/_private/e-commerce/-components/e-commerce-icons.tsx";
 import { FilterMenu } from "@/routes/_private/e-commerce/-components/filter-menu.tsx";
@@ -96,6 +96,8 @@ export type ProductSearchParams = SortOptions & {
   search?: string;
 };
 
+const defaultParams = { order: null, search: "", sortBy: null };
+
 export const Route = createFileRoute("/_private/e-commerce/")({
   component: ECommerce,
   validateSearch: (search?: Record<string, unknown>): ProductSearchParams => {
@@ -116,4 +118,5 @@ export const Route = createFileRoute("/_private/e-commerce/")({
 
     return params;
   },
+  search: { middlewares: [stripSearchParams(defaultParams)] },
 });
