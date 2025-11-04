@@ -13,71 +13,59 @@ const meta: Meta<typeof Input> = {
   component: Input,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/Input",
+  title: "--components/UI/Input",
 } satisfies Meta<typeof Input>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: (props, { updateArgs }) => {
-    return (
-      <Input
-        {...props}
-        onChange={(e) => {
-          updateArgs({ value: e.target.value });
-        }}
-      />
-    );
-  },
+  render: (props, { updateArgs }) => (
+    <Input
+      {...props}
+      onChange={(e) => {
+        updateArgs({ value: e.target.value });
+      }}
+    />
+  ),
 };
 
 export const WithIcon: Story = {
-  render: (props, { updateArgs }) => {
-    return (
-      <Input
-        {...props}
-        left={<Icons.Search />}
-        onChange={(e) => {
-          updateArgs({ value: e.target.value });
-        }}
-      />
-    );
-  },
+  render: (props, { updateArgs }) => (
+    <Input
+      {...props}
+      left={<Icons.Search />}
+      onChange={(e) => {
+        updateArgs({ value: e.target.value });
+      }}
+    />
+  ),
 };
 
 export const All: Story = {
-  render: ({ ...props }) => {
-    return (
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-        {Object.values(SIZE).map((size) => {
-          return (
-            <div className="flex items-center gap-2" key={size}>
-              <p className="font-medium uppercase">{size}</p>
+  render: ({ ...props }) => (
+    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+      {Object.values(SIZE).map((size) => (
+        <div className="flex items-center gap-2" key={size}>
+          <p className="font-medium uppercase">{size}</p>
 
-              <Input {...props} size={size} />
-            </div>
-          );
-        })}
-      </div>
-    );
-  },
+          <Input {...props} size={size} />
+        </div>
+      ))}
+    </div>
+  ),
 };
 
 export const AllWithIcon: Story = {
-  render: ({ ...props }) => {
-    return (
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-        {Object.values(SIZE).map((size) => {
-          return (
-            <div className="flex items-center gap-2" key={size}>
-              <p className="font-medium uppercase">{size}</p>
+  render: ({ ...props }) => (
+    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+      {Object.values(SIZE).map((size) => (
+        <div className="flex items-center gap-2" key={size}>
+          <p className="font-medium uppercase">{size}</p>
 
-              <Input {...props} left={<Icons.Search />} size={size} />
-            </div>
-          );
-        })}
-      </div>
-    );
-  },
+          <Input {...props} left={<Icons.Search />} size={size} />
+        </div>
+      ))}
+    </div>
+  ),
 };

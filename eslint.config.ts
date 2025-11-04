@@ -2,7 +2,6 @@ import js from "@eslint/js";
 import stylisticJs from "@stylistic/eslint-plugin";
 import tanstackRouter from "@tanstack/eslint-plugin-router";
 import type { ESLint, Linter } from "eslint";
-import i18next from "eslint-plugin-i18next";
 import preferArrowFunctions from "eslint-plugin-prefer-arrow-functions";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -26,7 +25,7 @@ const config: Linter.Config[] = [
     plugins: { js },
     rules: {
       ...js.configs.recommended.rules,
-      "arrow-body-style": ["error", "always"],
+      "arrow-body-style": ["error", "as-needed"],
       curly: "warn",
       "no-console": "warn",
       "no-extra-boolean-cast": "error",
@@ -70,7 +69,6 @@ const config: Linter.Config[] = [
     plugins: {
       "@stylistic": stylisticJs,
       "@tanstack/router": tanstackRouter as unknown as ESLint.Plugin,
-      i18next,
       "prefer-arrow-functions": preferArrowFunctions as ESLint.Plugin,
       "react-hooks": reactHooks,
       "simple-import-sort": simpleImportSort,
@@ -88,7 +86,6 @@ const config: Linter.Config[] = [
         { blankLine: "always", prev: "*", next: "return" },
       ],
       "@tanstack/router/create-route-property-order": "error",
-      "i18next/no-literal-string": "warn",
       "prefer-arrow-functions/prefer-arrow-functions": "error",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
@@ -133,8 +130,6 @@ const config: Linter.Config[] = [
 
   // Storybook rules
   ...storybook.configs["flat/recommended"],
-  { files: ["**/*.stories.{ts,tsx}"], rules: { "i18next/no-literal-string": "off" } },
-  { ignores: ["!.storybook"] },
 ];
 
 export default config;

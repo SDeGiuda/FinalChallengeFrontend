@@ -8,7 +8,7 @@ const meta: Meta<typeof Dialog.Root> = {
   component: Dialog.Root,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/Dialog",
+  title: "--components/UI/Dialog",
 } satisfies Meta<typeof Dialog.Root>;
 
 export default meta;
@@ -36,13 +36,7 @@ export const Default: Story = {
               <Button variant="outlined">No</Button>
             </Dialog.Close>
 
-            <Button
-              onClick={() => {
-                return setOpen(false);
-              }}
-            >
-              Yes
-            </Button>
+            <Button onClick={() => setOpen(false)}>Yes</Button>
           </Dialog.Footer>
         </Dialog.Content>
       </Dialog.Root>
@@ -72,13 +66,7 @@ export const RequiredDialog: Story = {
               <Button variant="outlined">Cancel</Button>
             </Dialog.Close>
 
-            <Button
-              onClick={() => {
-                return setOpen(false);
-              }}
-            >
-              Confirm
-            </Button>
+            <Button onClick={() => setOpen(false)}>Confirm</Button>
           </Dialog.Footer>
         </Dialog.Content>
       </Dialog.Root>

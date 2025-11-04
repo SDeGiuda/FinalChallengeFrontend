@@ -22,25 +22,25 @@ const dialogVariants = tv({
 
 const { close, content, description, footer, header, overlay, title } = dialogVariants();
 
-const Root = ({ ...props }: ComponentProps<typeof DialogPrimitive.Root>) => {
-  return <DialogPrimitive.Root data-slot="dialog" {...props} />;
-};
+const Root = ({ ...props }: ComponentProps<typeof DialogPrimitive.Root>) => (
+  <DialogPrimitive.Root data-slot="dialog" {...props} />
+);
 
-const Trigger = ({ ...props }: ComponentProps<typeof DialogPrimitive.Trigger>) => {
-  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
-};
+const Trigger = ({ ...props }: ComponentProps<typeof DialogPrimitive.Trigger>) => (
+  <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />
+);
 
-const Portal = ({ ...props }: ComponentProps<typeof DialogPrimitive.Portal>) => {
-  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
-};
+const Portal = ({ ...props }: ComponentProps<typeof DialogPrimitive.Portal>) => (
+  <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />
+);
 
-const Close = ({ ...props }: ComponentProps<typeof DialogPrimitive.Close>) => {
-  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
-};
+const Close = ({ ...props }: ComponentProps<typeof DialogPrimitive.Close>) => (
+  <DialogPrimitive.Close data-slot="dialog-close" {...props} />
+);
 
-const Overlay = ({ ...props }: ComponentProps<typeof DialogPrimitive.Overlay>) => {
-  return <DialogPrimitive.Overlay className={overlay()} data-slot="dialog-overlay" {...props} />;
-};
+const Overlay = ({ ...props }: ComponentProps<typeof DialogPrimitive.Overlay>) => (
+  <DialogPrimitive.Overlay className={overlay()} data-slot="dialog-overlay" {...props} />
+);
 
 const Content = ({
   children,
@@ -94,26 +94,24 @@ const Content = ({
   );
 };
 
-const Header = ({ ...props }: ComponentProps<"div">) => {
-  return <div className={header()} data-slot="dialog-header" {...props} />;
-};
+const Header = ({ ...props }: ComponentProps<"div">) => (
+  <div className={header()} data-slot="dialog-header" {...props} />
+);
 
-const Footer = ({ ...props }: ComponentProps<"div">) => {
-  return <div className={footer()} data-slot="dialog-footer" {...props} />;
-};
+const Footer = ({ ...props }: ComponentProps<"div">) => (
+  <div className={footer()} data-slot="dialog-footer" {...props} />
+);
 
-const Title = ({ ...props }: ComponentProps<typeof DialogPrimitive.Title>) => {
-  return <DialogPrimitive.Title className={title()} data-slot="dialog-title" {...props} />;
-};
+const Title = ({ ...props }: ComponentProps<typeof DialogPrimitive.Title>) => (
+  <DialogPrimitive.Title className={title()} data-slot="dialog-title" {...props} />
+);
 
-const Description = ({ ...props }: ComponentProps<typeof DialogPrimitive.Description>) => {
-  return (
-    <DialogPrimitive.Description
-      className={description()}
-      data-slot="dialog-description"
-      {...props}
-    />
-  );
-};
+const Description = ({ ...props }: ComponentProps<typeof DialogPrimitive.Description>) => (
+  <DialogPrimitive.Description
+    className={description()}
+    data-slot="dialog-description"
+    {...props}
+  />
+);
 
 export const Dialog = { Root, Close, Content, Description, Footer, Header, Title, Trigger };

@@ -15,9 +15,7 @@ export const useSearchText = (path: AvailableRoutesId) => {
   const search = useSearch();
   const navigate = useNavigate();
 
-  const { searchText } = useMemo(() => {
-    return searchTextValidation.parse(search);
-  }, [search]);
+  const { searchText } = useMemo(() => searchTextValidation.parse(search), [search]);
 
   const {
     actions: { resetPage },
@@ -25,9 +23,7 @@ export const useSearchText = (path: AvailableRoutesId) => {
 
   const setSearchText = (text: string) => {
     navigate({
-      search: (prev) => {
-        return { ...prev, searchText: text ? text : undefined };
-      },
+      search: (prev) => ({ ...prev, searchText: text ? text : undefined }),
     });
   };
 

@@ -7,35 +7,33 @@ const meta: Meta<typeof Card.Root> = {
   component: Card.Root,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/Card",
+  title: "--components/UI/Card",
 } satisfies Meta<typeof Card.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => {
-    return (
-      <Card.Root className="w-88">
-        <Card.Header>
-          <Card.Title>Card Title</Card.Title>
+  render: () => (
+    <Card.Root className="w-88">
+      <Card.Header>
+        <Card.Title>Card Title</Card.Title>
 
-          <Card.Description>This is a short description of the card.</Card.Description>
-        </Card.Header>
+        <Card.Description>This is a short description of the card.</Card.Description>
+      </Card.Header>
 
-        <Card.Content>
-          <p className="text-sm">
-            This is the card content. You can place any content here such as text, lists, or even
-            other components.
-          </p>
-        </Card.Content>
+      <Card.Content>
+        <p className="text-sm">
+          This is the card content. You can place any content here such as text, lists, or even
+          other components.
+        </p>
+      </Card.Content>
 
-        <Card.Footer className="flex justify-between">
-          <Button variant="outlined">Cancel</Button>
+      <Card.Footer className="flex justify-between">
+        <Button variant="outlined">Cancel</Button>
 
-          <Button>Confirm</Button>
-        </Card.Footer>
-      </Card.Root>
-    );
-  },
+        <Button>Confirm</Button>
+      </Card.Footer>
+    </Card.Root>
+  ),
 };

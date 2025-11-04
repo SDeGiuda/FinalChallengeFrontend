@@ -19,23 +19,17 @@ export const usePagination = (path: AvailableRoutesId) => {
   const search = useSearch();
   const navigate = useNavigate();
 
-  const { page } = useMemo(() => {
-    return paginationValidation.parse(search);
-  }, [search]);
+  const { page } = useMemo(() => paginationValidation.parse(search), [search]);
 
   const pageIndex = page - 1;
 
   const changePage = ({ pageIndex: newPageIndex }: { pageIndex: PaginationState["pageIndex"] }) => {
     navigate({
-      search: (prev) => {
-        return { ...prev, page: newPageIndex + 1 };
-      },
+      search: (prev) => ({ ...prev, page: newPageIndex + 1 }),
     });
   };
 
-  const resetPage = () => {
-    return changePage({ pageIndex: 0 });
-  };
+  const resetPage = () => changePage({ pageIndex: 0 });
 
   return { actions: { changePage, resetPage }, page, pageIndex };
 };

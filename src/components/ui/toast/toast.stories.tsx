@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button } from "@/components/ui";
+import { Button } from "@/components/ui/button/button.tsx";
 import { toast, Toaster } from "./toast";
 
 const meta: Meta<typeof Toaster> = {
   component: Toaster,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/Toast",
+  title: "--components/UI/Toast",
 } satisfies Meta<typeof Toaster>;
 
 export default meta;
@@ -18,21 +18,13 @@ const toastTypes = ["error", "info", "loading", "message", "success", "warning"]
 type ToastTypes = (typeof toastTypes)[number];
 
 export const Default: Story = {
-  render: () => {
-    return (
-      <>
-        <Toaster />
+  render: () => (
+    <>
+      <Toaster />
 
-        <Button
-          onClick={() => {
-            return toast("Toast!!!");
-          }}
-        >
-          Show toast
-        </Button>
-      </>
-    );
-  },
+      <Button onClick={() => toast("Toast!!!")}>Show toast</Button>
+    </>
+  ),
 };
 
 export const All: Story = {
@@ -78,18 +70,11 @@ export const All: Story = {
         <Toaster />
 
         <div className="flex flex-col gap-4">
-          {toastTypes.map((toastType) => {
-            return (
-              <Button
-                key={toastType}
-                onClick={() => {
-                  return showToast(toastType);
-                }}
-              >
-                Show {toastType} toast
-              </Button>
-            );
-          })}
+          {toastTypes.map((toastType) => (
+            <Button key={toastType} onClick={() => showToast(toastType)}>
+              Show {toastType} toast
+            </Button>
+          ))}
         </div>
       </>
     );

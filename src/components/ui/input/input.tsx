@@ -57,34 +57,32 @@ const Input = ({
   right,
   size = SIZE.MEDIUM,
   ...props
-}: InputProps) => {
-  return (
-    <div className={container({ className: containerClassName })}>
-      <div className={wrapper()}>
-        {left ? (
-          <IconWrapper className={leftIcon()} size={size}>
-            {left}
-          </IconWrapper>
-        ) : null}
+}: InputProps) => (
+  <div className={container({ className: containerClassName })}>
+    <div className={wrapper()}>
+      {left ? (
+        <IconWrapper className={leftIcon()} size={size}>
+          {left}
+        </IconWrapper>
+      ) : null}
 
-        <input
-          className={input({
-            className,
-            size,
-            left: left ? size : undefined,
-            right: right ? size : undefined,
-          })}
-          {...props}
-        />
+      <input
+        className={input({
+          className,
+          size,
+          left: left ? size : undefined,
+          right: right ? size : undefined,
+        })}
+        {...props}
+      />
 
-        {right ? (
-          <IconWrapper className={rightIcon()} size={size}>
-            {right}
-          </IconWrapper>
-        ) : null}
-      </div>
+      {right ? (
+        <IconWrapper className={rightIcon()} size={size}>
+          {right}
+        </IconWrapper>
+      ) : null}
     </div>
-  );
-};
+  </div>
+);
 
 export { Input };

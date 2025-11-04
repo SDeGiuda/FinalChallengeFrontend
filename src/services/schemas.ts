@@ -8,6 +8,5 @@ const paginatedResponseSchema = z.object({
   }),
 });
 
-export const parsePaginatedResponse = <T>(schema: z.ZodType<T>, response: unknown) => {
-  return paginatedResponseSchema.extend({ data: schema }).parse(response);
-};
+export const parsePaginatedResponse = <T>(schema: z.ZodType<T>, response: unknown) =>
+  paginatedResponseSchema.extend({ data: schema }).parse(response);

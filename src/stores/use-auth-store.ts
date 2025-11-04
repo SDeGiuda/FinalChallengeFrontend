@@ -9,30 +9,14 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export type AuthStoreState = {
-  token: string | null;
+  isLoggedIn: boolean;
 };
 
 const useAuthStore = create<AuthStoreState>()(
-  persist(
-    (_) => {
-      return { token: null };
-    },
-    { name: "auth" },
-  ),
+  persist((_) => ({ isLoggedIn: false }), { name: "auth" }),
 );
 
-export const getAuthStoreState = () => {
-  return useAuthStore.getState();
-};
+export const getIsLoggedIn = () => useAuthStore.getState().isLoggedIn;
 
-export const useAuthStoreToken = () => {
-  return useAuthStore((s) => {
-    return s.token;
-  });
-};
-
-export const setAuthStoreToken = (token: string | null) => {
-  return useAuthStore.setState(() => {
-    return { token };
-  });
-};
+export const useSetIsLoggedIn = (isLoggedIn: boolean) =>
+  useAuthStore.setState(() => ({ isLoggedIn }));

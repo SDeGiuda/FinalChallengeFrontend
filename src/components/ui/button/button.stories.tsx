@@ -23,70 +23,58 @@ const meta: Meta<typeof Button> = {
   component: Button,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-  title: "Components/UI/Button",
+  title: "--components/UI/Button",
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const All: Story = {
-  render: ({ children, ...props }) => {
-    return (
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-        {variants.map((variant) => {
-          return (
-            <div className="flex flex-col gap-4" key={variant}>
-              <h2 className="text-lg font-bold capitalize">{variant}</h2>
+  render: ({ children, ...props }) => (
+    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+      {variants.map((variant) => (
+        <div className="flex flex-col gap-4" key={variant}>
+          <h2 className="text-lg font-bold capitalize">{variant}</h2>
 
-              {sizes.map((size) => {
-                return (
-                  <div className="grid grid-cols-2 gap-2" key={size}>
-                    <div className="flex items-center gap-2">
-                      <p className="font-medium uppercase">{size}</p>
+          {sizes.map((size) => (
+            <div className="grid grid-cols-2 gap-2" key={size}>
+              <div className="flex items-center gap-2">
+                <p className="font-medium uppercase">{size}</p>
 
-                      <Button {...props} size={size} variant={variant}>
-                        {size === "icon" ? <Icons.Home /> : children}
-                      </Button>
-                    </div>
-                  </div>
-                );
-              })}
+                <Button {...props} size={size} variant={variant}>
+                  {size === "icon" ? <Icons.Home /> : children}
+                </Button>
+              </div>
             </div>
-          );
-        })}
-      </div>
-    );
-  },
+          ))}
+        </div>
+      ))}
+    </div>
+  ),
 };
 
 export const Disabled: Story = {
-  render: ({ children, ...props }) => {
-    return (
-      <div className="grid grid-cols-3 gap-10">
-        {variants.map((variant) => {
-          return (
-            <div className="flex flex-col gap-4" key={variant}>
-              <h2 className="text-lg font-bold capitalize">{variant}</h2>
+  render: ({ children, ...props }) => (
+    <div className="grid grid-cols-3 gap-10">
+      {variants.map((variant) => (
+        <div className="flex flex-col gap-4" key={variant}>
+          <h2 className="text-lg font-bold capitalize">{variant}</h2>
 
-              {sizes.map((size) => {
-                return (
-                  <div className="grid grid-cols-2 gap-4" key={size}>
-                    <div className="flex items-center gap-2">
-                      <p className="font-medium uppercase">{size}</p>
+          {sizes.map((size) => (
+            <div className="grid grid-cols-2 gap-4" key={size}>
+              <div className="flex items-center gap-2">
+                <p className="font-medium uppercase">{size}</p>
 
-                      <Button {...props} size={size} variant={variant} disabled>
-                        {size === "icon" ? <Icons.Home /> : children}
-                      </Button>
-                    </div>
-                  </div>
-                );
-              })}
+                <Button {...props} size={size} variant={variant} disabled>
+                  {size === "icon" ? <Icons.Home /> : children}
+                </Button>
+              </div>
             </div>
-          );
-        })}
-      </div>
-    );
-  },
+          ))}
+        </div>
+      ))}
+    </div>
+  ),
 };
 
 export const Default: Story = {};
@@ -95,7 +83,5 @@ export const Loading: Story = {
   args: {
     isLoading: true,
   },
-  render: ({ children, ...props }) => {
-    return <Button {...props}>{children}</Button>;
-  },
+  render: ({ children, ...props }) => <Button {...props}>{children}</Button>,
 };

@@ -15,33 +15,33 @@ const cardVariants = tv({
 
 const { action, description, footer, header, root, title } = cardVariants();
 
-const Root = ({ className, ...props }: ComponentProps<"div">) => {
-  return <div className={root({ className })} data-slot="card" {...props} />;
-};
+const Root = ({ className, ...props }: ComponentProps<"div">) => (
+  <div className={root({ className })} data-slot="card" {...props} />
+);
 
-const Header = ({ className, ...props }: ComponentProps<"div">) => {
-  return <div className={header({ className })} data-slot="card-header" {...props} />;
-};
+const Header = ({ className, ...props }: ComponentProps<"div">) => (
+  <div className={header({ className })} data-slot="card-header" {...props} />
+);
 
-const Title = ({ className, ...props }: ComponentProps<"div">) => {
-  return <div className={title({ className })} data-slot="card-title" {...props} />;
-};
+const Title = ({ className, ...props }: ComponentProps<"div">) => (
+  <div className={title({ className })} data-slot="card-title" {...props} />
+);
 
-const Description = ({ className, ...props }: ComponentProps<"div">) => {
-  return <div className={description({ className })} data-slot="card-description" {...props} />;
-};
+const Description = ({ className, ...props }: ComponentProps<"div">) => (
+  <div className={description({ className })} data-slot="card-description" {...props} />
+);
 
-const Content = ({ className, ...props }: ComponentProps<"div">) => {
-  return <div className={className} data-slot="card-content" {...props} />;
-};
+const Content = ({ className, ...props }: ComponentProps<"div">) => (
+  <div className={className} data-slot="card-content" {...props} />
+);
 
-const Footer = ({ className, ...props }: ComponentProps<"div">) => {
-  return <div className={footer({ className })} data-slot="card-footer" {...props} />;
-};
+const Footer = ({ className, ...props }: ComponentProps<"div">) => (
+  <div className={footer({ className })} data-slot="card-footer" {...props} />
+);
 
-const Action = ({ className, ...props }: ComponentProps<"div">) => {
-  return <div className={action({ className })} data-slot="card-action" {...props} />;
-};
+const Action = ({ className, ...props }: ComponentProps<"div">) => (
+  <div className={action({ className })} data-slot="card-action" {...props} />
+);
 
 export const Card = {
   Root,

@@ -7,7 +7,7 @@ const meta = {
   component: Accordion.Root,
   parameters: { layout: "padded" },
   tags: ["autodocs"],
-  title: "Components/UI/Accordion",
+  title: "--components/UI/Accordion",
 } satisfies Meta<ComponentProps<typeof Accordion.Root>>;
 
 export default meta;
@@ -25,26 +25,22 @@ export const Single: Story = {
     collapsible: true,
     className: "mx-auto max-w-md",
   },
-  render: (args) => {
-    return (
-      <Accordion.Root {...args}>
-        {items.map((item) => {
-          return (
-            <Accordion.Item key={item.value} value={item.value}>
-              <Accordion.Header>
-                <Accordion.Trigger>{item.header}</Accordion.Trigger>
-              </Accordion.Header>
+  render: (args) => (
+    <Accordion.Root {...args}>
+      {items.map((item) => (
+        <Accordion.Item key={item.value} value={item.value}>
+          <Accordion.Header>
+            <Accordion.Trigger>{item.header}</Accordion.Trigger>
+          </Accordion.Header>
 
-              <Accordion.Content className="py-4">
-                This is the accordion content. You can place any content here such as text, lists,
-                or even other components.
-              </Accordion.Content>
-            </Accordion.Item>
-          );
-        })}
-      </Accordion.Root>
-    );
-  },
+          <Accordion.Content className="py-4">
+            This is the accordion content. You can place any content here such as text, lists, or
+            even other components.
+          </Accordion.Content>
+        </Accordion.Item>
+      ))}
+    </Accordion.Root>
+  ),
 };
 
 export const Multiple: Story = {
@@ -52,26 +48,22 @@ export const Multiple: Story = {
     type: "multiple",
     className: "mx-auto max-w-md",
   },
-  render: (args) => {
-    return (
-      <Accordion.Root {...args}>
-        {items.map((item) => {
-          return (
-            <Accordion.Item key={item.value} value={item.value}>
-              <Accordion.Header>
-                <Accordion.Trigger>{item.header}</Accordion.Trigger>
-              </Accordion.Header>
+  render: (args) => (
+    <Accordion.Root {...args}>
+      {items.map((item) => (
+        <Accordion.Item key={item.value} value={item.value}>
+          <Accordion.Header>
+            <Accordion.Trigger>{item.header}</Accordion.Trigger>
+          </Accordion.Header>
 
-              <Accordion.Content className="py-4">
-                This is the accordion content. You can place any content here such as text, lists,
-                or even other components.
-              </Accordion.Content>
-            </Accordion.Item>
-          );
-        })}
-      </Accordion.Root>
-    );
-  },
+          <Accordion.Content className="py-4">
+            This is the accordion content. You can place any content here such as text, lists, or
+            even other components.
+          </Accordion.Content>
+        </Accordion.Item>
+      ))}
+    </Accordion.Root>
+  ),
 };
 
 export const DefaultValue: Story = {
@@ -80,24 +72,20 @@ export const DefaultValue: Story = {
     defaultValue: "2",
     type: "single",
   },
-  render: (args) => {
-    return (
-      <Accordion.Root {...args}>
-        {items.map((item) => {
-          return (
-            <Accordion.Item key={item.value} value={item.value}>
-              <Accordion.Header>
-                <Accordion.Trigger>{item.header}</Accordion.Trigger>
-              </Accordion.Header>
+  render: (args) => (
+    <Accordion.Root {...args}>
+      {items.map((item) => (
+        <Accordion.Item key={item.value} value={item.value}>
+          <Accordion.Header>
+            <Accordion.Trigger>{item.header}</Accordion.Trigger>
+          </Accordion.Header>
 
-              <Accordion.Content className="py-4">
-                This is the accordion content. You can place any content here such as text, lists,
-                or even other components.
-              </Accordion.Content>
-            </Accordion.Item>
-          );
-        })}
-      </Accordion.Root>
-    );
-  },
+          <Accordion.Content className="py-4">
+            This is the accordion content. You can place any content here such as text, lists, or
+            even other components.
+          </Accordion.Content>
+        </Accordion.Item>
+      ))}
+    </Accordion.Root>
+  ),
 };

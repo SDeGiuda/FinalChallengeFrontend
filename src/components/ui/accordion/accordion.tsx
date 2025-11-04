@@ -18,49 +18,39 @@ const accordionVariants = tv({
 
 const { content, header, icon, item, trigger } = accordionVariants();
 
-const Root = ({ ...props }: ComponentProps<typeof AccordionPrimitive.Root>) => {
-  return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
-};
+const Root = ({ ...props }: ComponentProps<typeof AccordionPrimitive.Root>) => (
+  <AccordionPrimitive.Root data-slot="accordion" {...props} />
+);
 
-const Header = ({ className, ...props }: ComponentProps<typeof AccordionPrimitive.Header>) => {
-  return <AccordionPrimitive.Header className={header({ className })} {...props} />;
-};
+const Header = ({ className, ...props }: ComponentProps<typeof AccordionPrimitive.Header>) => (
+  <AccordionPrimitive.Header className={header({ className })} {...props} />
+);
 
-const Item = ({ className, ...props }: ComponentProps<typeof AccordionPrimitive.Item>) => {
-  return (
-    <AccordionPrimitive.Item
-      className={item({ className })}
-      data-slot="accordion-item"
-      {...props}
-    />
-  );
-};
+const Item = ({ className, ...props }: ComponentProps<typeof AccordionPrimitive.Item>) => (
+  <AccordionPrimitive.Item className={item({ className })} data-slot="accordion-item" {...props} />
+);
 
 const Trigger = ({
   children,
   className,
   ...props
-}: ComponentProps<typeof AccordionPrimitive.Trigger>) => {
-  return (
-    <AccordionPrimitive.Trigger
-      className={trigger({ className })}
-      data-slot="accordion-trigger"
-      {...props}
-    >
-      {children}
-      <Icons.ChevronDown className={icon({ className })} />
-    </AccordionPrimitive.Trigger>
-  );
-};
+}: ComponentProps<typeof AccordionPrimitive.Trigger>) => (
+  <AccordionPrimitive.Trigger
+    className={trigger({ className })}
+    data-slot="accordion-trigger"
+    {...props}
+  >
+    {children}
+    <Icons.ChevronDown className={icon({ className })} />
+  </AccordionPrimitive.Trigger>
+);
 
-const Content = ({ className, ...props }: ComponentProps<typeof AccordionPrimitive.Content>) => {
-  return (
-    <AccordionPrimitive.Content
-      className={content({ className })}
-      data-slot="accordion-content"
-      {...props}
-    />
-  );
-};
+const Content = ({ className, ...props }: ComponentProps<typeof AccordionPrimitive.Content>) => (
+  <AccordionPrimitive.Content
+    className={content({ className })}
+    data-slot="accordion-content"
+    {...props}
+  />
+);
 
 export const Accordion = { Root, Content, Item, Trigger, Header };

@@ -51,8 +51,8 @@ const Button = ({
   size,
   variant,
   ...props
-}: ButtonProps) => {
-  return asChild ? (
+}: ButtonProps) =>
+  asChild ? (
     <Slot className={buttonVariants({ variant, size, className })} {...props}>
       {children}
     </Slot>
@@ -67,6 +67,5 @@ const Button = ({
       {children}
     </button>
   );
-};
 
 export { Button, buttonVariants };
